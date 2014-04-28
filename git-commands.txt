@@ -1,0 +1,71 @@
+1.	a. show all branches	 	- git branch
+	b. show current branch 		- git show-branch
+	c. switch to branch 		- git checkout <branch-name> 
+	 
+3. Adding new files
+	a. git add . - add all your files to the current stage
+	b. git status - showing files that will be commited
+	c. git commit -m "message goes here"
+	d. [git remote add origin git@github.com:nitnayal/localhost.git] - If rit not connected
+	e. git push origin master
+		here remote repository is called origin and default branch is master
+
+4. test:	cd ~/.ssh
+			ssh -T git@github.com
+
+5. cloning: folder to be copied
+		git clone git@github.com:nitnayal/localhost.git
+>>>>>>		git clone git@github.com:DTSL/mailin_zend.git
+>>>>>>		git clone -b dev-rc1 git@github.com:DTSL/mailin_zend.git
+		
+6. PULL
+	a. git status
+	b. git pull	(for branch)
+
+7. Commit modified file 
+	a. git status
+	b. git commit -m "message goes here" file_1 file_2 file_3
+	c. git pull
+	d. git push
+
+8. adding new dir to new repo
+	a. git init
+	b. git add .		// for all files
+	c. git commit -m "first commit"
+	d. git remote add origin git@github.com:nitnayal/docs.git
+	e. git push -u origin master
+
+9. remove files
+	a. git rm classes/file.pyc
+	b. git commit -m"bla bla bla"
+	c. git push
+
+
+10. merge fail conflict
+	a. git merge --abort
+	b. git reset --merge
+	c. go to your branch make changes same and then commit changes. 
+	d. pull and merge
+	
+11. discard unstaged changes
+	 a. git checkout -- .		-> for all
+	 b. git checkout <filename>
+	 
+12. delete branch
+	git branch -D nit_staging
+
+13. rename
+	git mv application/controllers/AnytestController.php application/controllers/StestController.php
+
+14. merge
+	inside new branch git merge origin/master
+
+
+------  remote changes 
+ 1. delete remote branch
+	git branch -D <branchName> 		// delete local branch
+ 	git push origin --delete <branchName>		// delete remote branch
+
+ 2. create remote branch
+ 	git checkout -b your_branch 	 	// create local branch
+ 	git push -u <remote-name> <branch-name>		// push to remote 

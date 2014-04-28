@@ -1,0 +1,69 @@
+1. form
+	1. radio:- $('input[name=radioName]:checked').val();
+	2. checkbox:-
+		- $('input[type=checkbox]');
+		- $('#isAgeSelected').is(':checked')
+		- $('#isAgeSelected input[type=checkbox]').prop('checked',false);
+
+	5. select:-	$("select option:selected")
+	4. is display block - .is(':visible')
+	5. selecting - 
+		# starting with- $("input[name^='news']")
+
+2. String
+	1. string.substring(from, to)
+	2. string.lastIndexOf(searchvalue,start)
+	3. string.replace(strpart,'');
+		- string.replace(/[^a-zA-Z0-9_.]/gi, ' ');  // no comma in regexp
+	4. str.match("acsd$");		// ending witch ascd
+
+
+3. Array
+		var myCars=new Array("Saab","Volvo","BMW");
+		var myCars=["Saab","Volvo","BMW"];
+
+		1. myCars.length 
+		2. myCars.indexOf("Volvo")
+		3. myCars.push("Volvo")
+		4. var arry3 = array1.concat(array2);
+		5. hidden field assign value = JSON.stringify(darray)
+4. div
+	1. append - $("#foo").append("<div>hello world</div>")
+	2. click - $('#videoBody').on('click','.divOutputBitrate select.bitrate_combo',unique_bitrate);
+
+5. Condition
+	1. each
+		a. $.each($(".download_data[id^='div_']"),function(index, data){
+		
+		});
+		b. continue === return true;
+		c. break  === return false;
+
+6. ajax
+	1.	datatype = 'json' (OR) returnedData = JSON.parse(response); 
+	2.	var params = {};
+		params['eventid'] = eventid;
+		params['mapperid'] = mapperid;
+
+		$.ajax({
+			type : "POST",
+			url : "<?php echo BASE_URL_REDIRECT ?>admin/vodconsole/mandate/case/save/",
+			data : params,
+			dataType:"json",
+			success: function(resp) {
+				
+			}
+		});
+
+7. live divs -
+	$('.slide-table-overflow').on('click','.slide-images input[type=checkbox]', function(){
+		alert('hi');
+	});
+
+8. object
+	a. for (var key in p)
+	b. $.each(obj, function(key, value) {
+	    console.log(key, value);
+	});
+	c. delete Object[property];
+	d. $.isEmptyObject();

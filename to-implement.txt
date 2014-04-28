@@ -1,0 +1,39 @@
+####methods
+## get
+getInvokeArg - config file values
+getScriptPath,  getControllerName, viewSuffix, 
+getApplication , getAutoloader, pushAutoloader, spl_autoload
+
+## common
+convertNumerals() - to convert numbers between Arabic and Latin scripts. Requires PHP’s PCRE extension with UTF-8
+
+*************************************************************************************** 
+####### php #######
+spl_autoload_register - auto loads classes
+var_dump - function displays structured information about one or more expressions
+glob() - retrieve a list of all files corresponding in that directory
+PHP_EOL - end of line
+get_class() - name of class. param for class
+getenv - gets value of environment variable
+toArray - returns an array containing one entry per Row
+get_class($book)	get_parent_class($book)
+_autoload() to autoload classes
+iconv — Convert string to requested character encoding
+
+***************************************************************************************
+## css
+style="opacity:0.4;filter:alpha(opacity=40)" />
+
+***************************************************************************************
+## other
+
+***************************************************************************************
+## other tech
+
+****************************************************************************************
+http://www.imdb.com/title/tt0456912/board/nest/57654098
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsbStor
+
+http://www.zfforums.com/register.php
+gushal1987

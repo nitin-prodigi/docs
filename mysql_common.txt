@@ -1,0 +1,79 @@
+********************  COMMON  ********************
+1. mysql -u root -p 
+   htp@123
+
+2. import -> mysql -u root -p eva < /var/www/html/EVA/trunck/dbms/dump/eva+14_JUN_2013.sql
+3. export -> mysqldump -u eva -p -h 192.168.0.235 -d eva > /home/nitinn/Downloads/eva.sql
+
+
+
+********************  codes  ********************
+1. grouping by max for each id
+	SELECT g.id, g.name, g.val FROM `getmax` as g inner join (Select name, max(val) as vl from getmax group by name) maxval on (g.name = maxval.name and g.val = maxval.vl)
+
+
+
+
+>>>>>>>>>>>> stored procedure <<<<<<<<<<<<<<<
+1. show procedure status
+   show create procedure
+
+2. mysql> delimiter $
+   mysql> create procedure get_name()
+    -> BEGIN
+    -> select name from strdprc;
+    -> END$
+   mysql> delimiter ;
+   mysql> call get_name();
+
+
+
+
+********************  meaning *******************
+1. GROUP_CONCAT - groups using comma seperated or other
+2. 
+
+
+********************  zend *******************
+1. delete -
+		1.	$where = array();
+			$where[] = $db->quoteInto('first_id = ?', $first_id);
+			$where[] = $db->quoteInto('second_id = ?', $second_id);
+
+		2. $this->_db->delete($this->_name, array(
+				'status = ?' => '0',
+            	'2 < ?' => new Zend_Db_Expr('(TO_DAYS(CURDATE()) - TO_DAYS(creation_time))')
+        	));
+	
+2.	
+	1. select 
+		a. $this->_db->select()->from(array('gu' => 'group_users_association'),array('group_id'))->where('user_id =?', $userId);
+			$this->_db->fetchAll($sql);
+
+		b. $this->select()->from($this->_name, array('id'))
+			$this->fetchAll($sql);
+
+		c. $sql->limit(1,0);
+
+	2. update
+		$sql = $this->_db->update("event_settings",array('slideChanged' => 1), array('eventId = ?' => $eventId));
+
+	3. insert
+		a. $this->insert($data_arr);
+		b. $this->_db->insert("group_roles_association", $data_arr);
+		c. $this->_db->lastInsertId();
+	
+
+3.	
+	1. echo $sql->__toString(); exit;
+	2. $rowset =  $this->_db->fetchRow($sql);
+
+4. $select->where("(gra.group_id = ?", abs($authNamespace->groupId))
+						->orWhere("gra.group_id IS NULL)");
+
+
+
+
+********************  adv *******************
+1. finding column names
+SELECT DISTINCT TABLE_NAME, COLUMN_NAME  FROM INFORMATION_SCHEMA.COLUMNS  WHERE column_name LIKE '%DSEDateFormat%'  AND TABLE_SCHEMA='espace_29112012'

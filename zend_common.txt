@@ -1,0 +1,63 @@
+1. Request
+	1. ajax request - if($this->_request->isXmlHttpRequest()){}
+	2. current usrl in view - $this->userAgent()->getServerValue('request_uri')
+	3. flash
+		$flashMessenger = $this->_helper->FlashMessenger;
+		$flashMessenger->addMessage('your media file is uploading. You will receive a mail on complletion');
+		
+		if ($this->_helper->FlashMessenger->hasMessages())
+  			$this->view->msg = $this->_helper->FlashMessenger->getMessages();
+
+  	4. 	$this->_helper->viewRenderer->setNoRender(true);
+  		$this->_helper->layout->disableLayout();
+
+  	5.  $client = new Zend_Http_Client();
+        $client->setUri('https://app.zencoder.com/api/v2/jobs/'.$jobid.'/progress');
+        $client->setHeaders("Zencoder-Api-Key",ZENCODER_READAPI);
+        $response = $client->request('GET');
+        $result = $response->getBody();
+
+	6. form
+		1. view- $this->escape();
+
+	7. session / cookie
+		$defaultNamespace = new Zend_Session_Namespace('Default');
+		if (isset($defaultNamespace->numberOfPageRequests)) {
+	    	$defaultNamespace->numberOfPageRequests++;
+		} else {
+	    	$defaultNamespace->numberOfPageRequests = 1; // first time
+		}
+
+	8. URL
+		a. $this->serverUrl();
+		b. $this->baseUrl();
+
+2. DB
+	1. fetchall empty -	count($result)
+/****************** Snippets ************************/
+1. Upload
+        $adapter = new Zend_File_Transfer_Adapter_Http();
+        $adapter->setDestination($rebrand_abs_path);
+        $files = $adapter->getFileInfo();
+
+        foreach ($files as $file => $info) {
+          if(!$adapter->isUploaded($file))
+            continue; 
+          
+          if($info['size'] > 1048576){
+            array_push($error_msgs, $info['name'] ." size is more than 1 mb.");
+            continue;
+          }
+
+          $file_arr = $this->fileMapping();  
+          $adapter->addFilter('Rename',array(
+               'target' => $rebrand_abs_path.'/'.$fileName,
+               'overwrite' => true
+          ));
+          $adapter->receive($file);
+
+          if($adapter->isReceived($file)){
+          
+          }
+           
+        }

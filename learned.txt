@@ -1,0 +1,26 @@
+>>>>>>>>>>  zend:  >>>>>>>>>>
+Zend_Loader_Autoloader - loading library files
+
+>>>>>>>>>>  mysql:  >>>>>>>>>>
+---distinct column name in db
+select distinct table_name 
+from INFORMATION_SCHEMA.COLUMNS 
+where column_name like '%usertype%'
+and table_schema = ''		// database name if wanted
+
+>>>>>>>>>>  js >>>>>>>>>>
+---post error on console log
+error:function (xhr, ajaxOptions, thrownError){
+	alert(xhr.status);
+	alert(thrownError);
+} 
+
+
+>>>>>>>>>> virtual host >>>>
+sudo geany /etc/apache2/sites-available/default
+
+
+var a = "Côtes d'Armor france";
+var enc = encodeURIComponent(a);
+var enc_2 = enc.replace(/%20/g,"+");
+enc_2.replace(/'/g,"%27");

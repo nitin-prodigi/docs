@@ -1,0 +1,51 @@
+1. detecting spam bots instead of captcha; ssn is social security number
+	<input type="text" name="ssn" id="ssn" value="">
+
+2. storing a token in form field so values can't be used from session
+	<input type="hidden" name="token" id="token" value="</php echo $_SESSION['token']; ?>">
+
+3. http redirett - no form resubmit
+	this->_redirector = $this->_helper->getHelper('Redirector'); 
+        $this->_redirector->setCode(303)
+                          ->setExit(false)
+			  ->gotoUrl('/controller/action/param1/test/param2/test2');
+
+
+
+
+
+
+
+=======================        FUNCTIONS            ==========================
+
+1. string
+	1. remove last substr($str,0,-1);
+
+2. files
+	1. looping directory ->
+	     foreach (new DirectoryIterator($slide_dir) as $fileInfo){
+		if(!$fileInfo->isDot())
+		        unlink($fileInfo->getPathname());
+	     }
+
+	2. pathinfo($info['name'], PATHINFO_EXTENSION); 
+
+	3. 	
+	$slide_dir = UPLOAD_FILE_PATH.'events/'.$event_id.'/slides';
+		if(file_exists($slide_dir)){
+			foreach (new DirectoryIterator($slide_dir) as $fileInfo){
+			    if(!$fileInfo->isDot()){
+			        unlink($fileInfo->getPathname());
+			    }
+			}		
+		}
+
+3. array
+	1. array_keys, array_diff_key
+	2. range(4,80), array_fill, array_fill_keys
+	3. unset 
+			$chap_key = array_search($key, $slide_ids);
+			if($chap_key!==false){
+			    unset($slide_ids[$chap_key]);
+			}
+	4.
